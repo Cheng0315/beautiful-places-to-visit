@@ -1,1 +1,7 @@
 #!/usr/bin/env ruby
+
+require "open-uri"
+require "pry"
+require "./lib/beautiful_places_to_visit"
+
+BeautifulPlacesToVisit::CLI.new.run
