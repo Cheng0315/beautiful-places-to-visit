@@ -1,7 +1,7 @@
 class BeautifulPlacesToVisit::Scraper
 
   def scrape_page
-    doc = Nokogiri::HTML(open(http://time.com/money/page/best-places-to-travel-2018/))
+    doc = Nokogiri::HTML(open("http://time.com/money/page/best-places-to-travel-2018/"))
     destination = doc.css("section.chapter h2").text
     binding.pry
   end
@@ -14,6 +14,5 @@ class BeautifulPlacesToVisit::Scraper
     end
   end
 
-doc.css("div.image-wrapper").text
 
 end
