@@ -5,4 +5,4 @@ require "pry"
 require "./lib/beautiful_places_to_visit"
 
 BeautifulPlacesToVisit::CLI.new.run
-BeautifulPlacesToVisit::Scraper.new.create_us_destionations
+BeautifulPlacesToVisit::Scraper.new.create_us_destinations
