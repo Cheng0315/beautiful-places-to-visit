@@ -24,21 +24,3 @@ class BeautifulPlacesToVisit::Scraper
     destinations.each_with_index {|d, i| BeautifulPlacesToVisit::Destination.new(d, descriptions[i], costs_arr[i], image_urls[i])}
   end
 end
-=begin
-  def mid
-    max - scrape_page.css("section.chapter h1:nth-of-type(3) ~ h2").collect {|d| d.text}.count
-  end
-
-  def max
-    scrape_page.css("section.chapter h2").collect {|d| d.text}.count
-  end
-
-  def list_international_destinations
-    destinations.slice(mid, max).each {|destination| puts destination}
-  end
-
-  def list_us_destinations
-    destinations.slice(0, mid).each {|destination| puts destination}
-  end
-=end
-  
