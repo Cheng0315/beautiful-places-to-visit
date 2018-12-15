@@ -37,7 +37,7 @@ class BeautifulPlacesToVisit::CLI
     second_input = gets.chomp.downcase
 
     if second_input == 'exit'
-      puts "\nThank you for checking out information about these beautiful places! We hope see you have a great time visiting these places!"
+      puts "\nThank you for checking out information about these beautiful places! We hope you have a great time visiting these places!"
     elsif input == 1 && second_input.to_i.between?(1, 10)
       display_destination_info(second_input.to_i - 1)
     elsif input == 2 && second_input.to_i.between?(1, 10)
@@ -70,7 +70,7 @@ class BeautifulPlacesToVisit::CLI
     if input == 'y'
       start
     elsif input == 'n'
-      puts "\nThank you for checking out information about these beautiful places! We hope see you have a great time visiting these places!"
+      puts "\nThank you for checking out information about these beautiful places! We hope you have a great time visiting these places!"
     else
       loop_around
     end
