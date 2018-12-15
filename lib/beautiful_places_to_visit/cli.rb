@@ -6,7 +6,7 @@ class BeautifulPlacesToVisit::CLI
   end
 
   def start
-    puts "\nWelcome to the beautiful place where you can view information on beautiful places in the world!\nPlease input 1 to view a list of 10 beautiful places in the US.\nOr input 2 to view a list of 10 beautiful places outside of the US."
+    puts "\nWelcome to the beautiful place where you can view information on beautiful places you can visit in the world!\nPlease input 1 to view a list of 10 beautiful places you can visit in the US.\nOr input 2 to view a list of 10 beautiful places you can visit outside the US."
     input = gets.chomp.downcase
 
     if input == '1'
@@ -28,21 +28,21 @@ class BeautifulPlacesToVisit::CLI
       BeautifulPlacesToVisit::Destination.all.slice(0, 10).each_with_index {|o, i| puts "   #{i+1}. #{o.destination}"}
       puts "\n**********************************************************************\n"
     else
-      puts "\n************(10 Beautiful Places You Can Visit Internationally)************\n\n"
+      puts "\n************(10 Beautiful Places You Can Visit Outside The US)************\n\n"
       BeautifulPlacesToVisit::Destination.all.slice(10, 20).each_with_index {|o, i| puts "   #{i+1}. #{o.destination}"}
-      puts "\n**********************************************************************\n"
+      puts "\n******************************************************************************\n"
     end
   end
 
   def get_user_second_input(input)
-    puts "Which place would you like more information on?\nPlease input the number correspond place.\nOr input 'exit' to exit."
+    puts "Which destination would you like more information on?\nPlease input the number corresponds to the destination.\nOr input 'exit' to exit."
     second_input = gets.chomp.downcase
 
     if second_input == 'exit'
       puts "Thank you for tuning in. See you again soon!"
-    elsif input == 1
+    elsif input == 1 && !!second_input.to_i
       display_destination_info(second_input.to_i - 1)
-    elsif input == 2
+    elsif input == 2 && !!second_input.to_i
       display_destination_info(second_input.to_i + 9)
     else
       get_user_second_input(input)
@@ -59,21 +59,20 @@ class BeautifulPlacesToVisit::CLI
     puts "   Cost to spend a week for two: #{place.cost_to_spend_a_week_for_two}"
     puts "   photo: #{place.image_url}\n\n"
     puts "*************************************************************\n"
-    puts "Would you like to view information on another beautiful place?\nIf so please input 'y' else input 'n' to exit."
 
-    last_input = gets.chomp.downcase
-
-    loop_around(last_input)
+    loop_around
   end
 
-  def loop_around(input)
+  def loop_around
+    puts "Would you like to view information on another beautiful place?\nIf so please input 'y', else input 'n' to exit."
+    input = gets.chomp.downcase
 
     if input == 'y'
       start
     elsif input == 'n'
       puts "Thank you for tuning in! See you again soon!"
     else
-      loop_around(input)
+      loop_around
     end
   end
 end
