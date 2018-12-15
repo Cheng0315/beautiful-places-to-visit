@@ -20,6 +20,11 @@ class BeautifulPlacesToVisit::Scraper
     scrape_page.css("section.chapter img").collect {|m| m.attribute("src").value}.reject.with_index{|e, i| i == 10 || i ==11}
   end
 
+  def create_destinations_info
+    destinations.each_with_index {|d, i| BeautifulPlacesToVisit::Destination.new(d, descriptions[i], costs_arr[i], image_urls[i])}
+  end
+end
+=begin
   def mid
     max - scrape_page.css("section.chapter h1:nth-of-type(3) ~ h2").collect {|d| d.text}.count
   end
@@ -35,9 +40,5 @@ class BeautifulPlacesToVisit::Scraper
   def list_us_destinations
     destinations.slice(0, mid).each {|destination| puts destination}
   end
-
-  def create_destinations_info
-    destinations.slice(0, mid).each_with_index {|d, i| BeautifulPlacesToVisit::USDestination.new(d, descriptions[i], costs_arr[i], image_urls[i])}
-    destinations.slice(mid, max).each_with_index {|d, i| BeautifulPlacesToVisit::InternationalDestination.new(d, descriptions[i], costs_arr[i], image_urls[i])}
-  end
-end
+=end
+  
