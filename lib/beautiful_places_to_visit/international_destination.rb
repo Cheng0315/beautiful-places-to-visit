@@ -1,4 +1,4 @@
-class BeautifulPlacesToVisit::USDestination
+class BeautifulPlacesToVisit::InternationalDestination
   attr_reader :destination, :description, :airfare, :hotel_cost_per_night, :cost_to_spend_a_week_for_two, :image_url
   @@all = []
 
@@ -14,5 +14,9 @@ class BeautifulPlacesToVisit::USDestination
 
   def self.all
     @@all
+  end
+
+  def self.retrieve_info
+    self.all.each {|i| puts i.destination, i.airfare}
   end
 end
