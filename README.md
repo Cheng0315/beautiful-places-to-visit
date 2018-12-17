@@ -1,6 +1,6 @@
 # Beautiful Places To Visit
 
-This Ruby Gem provides a CLI to view information on 10 beautiful places you can visit in the US and 10 beautiful places you can visit outside the US based on the time.com website.
+This Ruby Gem provides a CLI to view information on 10 beautiful places you can visit in the US and 10 beautiful places you can visit outside the US, based on the time.com website.
 
 ## Installation
 
