@@ -6,7 +6,7 @@ class BeautifulPlacesToVisit::CLI
   end
 
   def start  #prints welcome message, lists destinations, and prints destination info
-    puts "\nWelcome to 'Beautiful Places You Can Visit in the World' CLI!\nPlease input 1 to view a list of 10 beautiful places you can visit in the US.\nPlease input 2 to view a list of 10 beautiful places you can visit outside the US."
+    puts "\nWelcome to 'Beautiful Places You Can Visit' CLI!\nPlease input 1 to view a list of 10 beautiful places you can visit in the US.\nPlease input 2 to view a list of 10 beautiful places you can visit outside the US."
     input = gets.chomp.downcase
 
     if input == '1'
@@ -23,11 +23,11 @@ class BeautifulPlacesToVisit::CLI
   def display_list(input)  #prints list
     if input == 1
       puts "\n************(10 Beautiful Places You Can Visit In The US)************\n\n"
-      BeautifulPlacesToVisit::Destination.all.slice(0, 10).each_with_index {|o, i| puts "   #{i+1}. #{o.destination}"}
+      BeautifulPlacesToVisit::Destination.all.slice(0, 10).sort_by {|obj| obj.destination}.each_with_index {|o, i| puts "   #{i+1}. #{o.destination}"}
       puts "\n**********************************************************************\n"
     else
       puts "\n************(10 Beautiful Places You Can Visit Outside The US)************\n\n"
-      BeautifulPlacesToVisit::Destination.all.slice(10, 20).each_with_index {|o, i| puts "   #{i+1}. #{o.destination}"}
+      BeautifulPlacesToVisit::Destination.all.slice(10, 20).sort_by {|obj| obj.destination}.each_with_index {|o, i| puts "   #{i+1}. #{o.destination}"}
       puts "\n******************************************************************************\n"
     end
   end
